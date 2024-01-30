@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NITCONF</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #ffffff;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.header {
+			background-color: #0c0b21;
+			color: #fff;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		h2 {
+			padding-left: 30px;
+		}
+
+		.middle {
+			color: #fff;
+			text-align: center;
+			display: flex;
+		}
+
+		.right img {
+			height: 100%;
+			width: 100%;
+		}
+
+		.left {
+			padding-top: 100px;
+			color: rgb(7, 6, 6);
+			width: 50%;
+		}
+
+		.left h2 {
+			text-shadow: 2px 2px rgba(0, 0, 0, 0.142);
+			color: rgb(8, 8, 156);
+		}
+
+		.middle h2 {
+			font-size: 2em;
+			margin-bottom: 20px;
+		}
+
+		.middle p {
+			font-size: 1.2em;
+			line-height: 1.5;
+		}
+
+		.buttons {
+			padding-right: 13px;
+			padding-top: 13px;
+		}
+
+		.buttons button {
+			margin: 10px;
+			color: rgb(232, 232, 232);
+			background-color: rgb(8, 8, 156);
+			border: unset;
+			border-radius: 5px;
+			padding: 5px 10px 5px 10px;
+		}
+
+		.logIn {
+			font-size: 12px;
+			color: rgb(8, 8, 156);
+		}
+
+		.register button {
+			background-color: rgb(8, 8, 156);
+			padding: 5px 10px 5px 10px;
+			border: unset;
+			border-radius: 4px;
+			font-size: 16px;
+			color: white;
+			height: 40px;
+			width: 130px;
+		}
+
+		button:hover {
+			background-color: rgb(7, 7, 106);
+			cursor: pointer;
+		}
+
+		a:hover {
+			color: rgb(217, 165, 42);
+		}
+
+		.anch {
+			color: white;
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<div>
+			<h2>NITCONF</h2>
+		</div>
+		<div class="buttons">
+			<button><a class="anch" th:href="@{/loginPage}">Sign In</a></button>
+			<button><a class="anch" th:href="@{/registerPage}">Sign Up</a></button>
+		</div>
+	</div>
+
+	<div class="middle">
+		<div class="left">
+			<h2>Welcome to NITCONF!</h2>
+			<p>The aim of the conference is to provide a platform to <br>the researchers and practitioners from both
+				academia as well as <br>industry to meet and share cutting-edge development in the field. <br>
+				Authors are solicited to contribute to the conference by submitting articles that illustrate research
+				results, projects, surveying works and industrial experiences that describe significant advances in the
+				following areas, but are not limited to.
+			</p>
+			<div>
+				<div class="logIn">
+					<p>Already a member?<a th:href="@{/loginPage}">Log In</a></p>
+				</div>
+				<div class="register"><button><a class="anch" th:href="@{/registerPage}">Register Here</a></button>
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<img th:src="@{/RMS_Login.jpg}" alt="pic">
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
