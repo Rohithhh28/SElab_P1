@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -11,12 +11,17 @@
     margin: 20px;
   }
   
-  header {
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(8, 8, 156);
-    color: #fff;
-  }
+  .header {
+            background-color: #0c0b21;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+          h2 {
+			   padding-left: 30px;
+            color:white;
+        }
   
   .form-container {
     max-height: 650px;
@@ -92,14 +97,18 @@
   {
     width: 60%;
   }
+  h1
+  {
+	  padding-left: 32%;
+  }
 </style>
 </head>
 
 <body>
-  <header>
-    <h1>Conference Paper Review Form</h1>
-  </header>
-
+	<!--<div class="header">
+        <div><h2>NITCONF</h2></div>
+</div>-->
+  <h1>Conference Paper Review Form</h1>
   <form  method="post" th:action="@{/review}" th:object="${review}">
     <table>
       <tr>
