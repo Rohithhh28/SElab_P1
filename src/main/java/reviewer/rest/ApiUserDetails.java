@@ -28,14 +28,14 @@ public class ApiUserDetails {
 		this.paperRepository = paperRepository;
 	}
 	
-	@GetMapping("/user")
-	public User getUserDetails(@RequestParam("id") String username) {
+	@GetMapping("/user/{id}")
+	public User getUserDetails(@PathVariable("id") String username) {
 		User user = userRepository.findByEmailId(username);
 		return user;
 	}
 	
-	@GetMapping("/paperCount")
-    public Long getPaperCount(@RequestParam("id") String username) {
+	@GetMapping("/paperCount/{id}")
+    public Long getPaperCount(@PathVariable("id") String username) {
     	User user = getUserDetails(username);
     	return reviewRepository.countByUserAndStatus(user,"Already Reviewed");
     }

@@ -40,16 +40,15 @@ public class ApiEditProfileController {
         this.reviewRepo = reviewRepo;
     }
 
-    @GetMapping
-    public User EditProfile(@RequestParam("id") String username) {
+    @GetMapping("/{id}")
+    public User EditProfile(@PathVariable("id") String username) {
         User user = repo.findByEmailId(username);
-        System.out.println(user);
         return user; 
     }
 
-    @PostMapping(path="/save" ,consumes="application/json")
+    @PostMapping(path="/save/{id}" ,consumes="application/json")
     public @ResponseBody User Edit( @RequestBody EditProfileUtil util,
-    					@RequestParam("id") String username) {
+    					@PathVariable("id") String username) {
     	User user = new User();
     	user.setEmailId(util.getEmailId());
     	user.setFirstName(util.getFirstName());

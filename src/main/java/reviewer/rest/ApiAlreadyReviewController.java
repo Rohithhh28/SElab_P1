@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,8 +31,8 @@ public class ApiAlreadyReviewController {
 	        this.reviewRepository = reviewRepository;
 	    }
 	    
-	    @GetMapping
-	    public List<Paper> getAlreadyReviewedPapers(@RequestParam("id") String username) {
+	    @GetMapping("/{id}")
+	    public List<Paper> getAlreadyReviewedPapers(@PathVariable("id") String username) {
 			User user = userRepository.findByEmailId(username);
 	        List<Review> reviews = reviewRepository.findAllByuserAndStatus(user, "Already Reviewed");
 	        List<Paper> alreadyReviewedPapers = new ArrayList<>();

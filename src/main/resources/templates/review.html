@@ -246,7 +246,7 @@
 	var ConfidentialComments = document.getElementById("ConfidentialComments");
 	var decision = document.getElementById("decision");
 	
-   fetch(`http://localhost:8080/api/review/${getLastItem(link)}?id=${email}`)
+   fetch(`http://localhost:8080/api/review/${getLastItem(link)}/${email}`)
    .then(res => res.json())
    .then(data => {
 	   reviewId = data.rid
@@ -266,7 +266,7 @@
 	   // decision didnt write bcoz its fetch
    })
    
-   fetch(`http://localhost:8080/api/user?id=${email}`)
+   fetch(`http://localhost:8080/api/user/${email}`)
    .then(res => res.json())
    .then(data => {
 	 
