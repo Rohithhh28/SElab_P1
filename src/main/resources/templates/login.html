@@ -108,7 +108,7 @@ width: 400px;
          <div><h2>NITCONF</h2></div>
  </div>
      <div class="body">
-         <form method="post" id="loginform">
+        <form method="post" id="loginForm" th:action="@{/login}" th:object="${user}">
 
  		<div class="login-container">
         <h2>Login</h2>
@@ -133,6 +133,15 @@ width: 400px;
     </div>
 </div>
     <script>
+
+function setLocalStorage(){
+			const form = document.getElementById("loginForm");
+		
+		const prePayload = new FormData(form);
+		const values = Object.fromEntries(prePayload);
+		localStorage.setItem("email",values.username);
+		}
+
          function login() {
              var email = document.getElementById('email').value;
              var password = document.getElementById('password').value;
